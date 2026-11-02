@@ -1,0 +1,111 @@
+
+
+
+body {
+    margin: 0;
+}
+
+.seitenleiste {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+.layout-container {
+  display: flex;
+  min-height: 100vh; /* Füllt die volle Bildschirmhöhe aus */
+  width: 100%;
+}
+
+.sidebar {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 500px; /* Feste Breite der Seitenleiste */
+  background-color: #181a20;
+  color: #d0d4d8;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+.sidebar-box {
+  background-color: #34495e; /* Etwas helleres Blau als Kasten */
+  border-radius: 8px;        /* Abgerundete Ecken */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;    /* Links untereinander */
+  gap: 10px;                 /* Abstand zwischen den Links */
+  border: 1px solid #4f6f8f; /* Optional: Feiner Rahmen */
+}
+
+.sidebar-title {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  text-align: center;     /* Optional: Überschrift zentrieren */
+}
+
+.sidebar-box a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: sans-serif;
+}
+
+.sidebar-box a:hover {
+  background-color: #1abc9c; /* Schicker Hover-Effekt (z.B. Türkis) */
+}
+
+.sidebar-footer {
+  margin-top: auto;       /* Drückt dieses Element magisch ganz nach unten */
+  text-align: center;     /* Zentriert den Text horizontal */
+  font-size: 0.75rem;     /* Kleine Schriftgröße */
+  color: #bdc3c7;         /* Etwas helleres Grau für dezente Optik */
+  font-family: sans-serif;
+  padding-top: 20px;
+}
+
+
+
+
+
+
+.main-content {
+  flex-grow: 1;           /* Nimmt weiterhin den restlichen Platz neben der Sidebar ein */
+  position: relative;     /* Wichtig: Erlaubt absolute Positionierung für Text und Bild darin */
+  overflow: hidden;       /* Verhindert, dass das Bild über den Rand hinausragt */
+  height: 100vh;          /* Zwingt den Hauptinhalt exakt auf Bildschirmhöhe */
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* Bild füllt den Bereich perfekt aus, ohne gestaucht zu werden */
+  object-position: center;/* Bild wird mittig ausgerichtet */
+}
+
+.text-overlay {
+  position: absolute;
+  bottom: 20px;           /* Abstand von unten */
+  right: 20px;            /* Geändert: Abstand von RECHTS */
+  color: white;           /* Textfarbe */
+  font-size: 0.85rem;     /* Kleine Schriftgröße */
+  font-family: sans-serif;
+  
+  /* Textausrichtung nach rechts (falls der Text mehrzeilig wird) */
+  text-align: right; 
+  
+  /* Textschatten für bessere Lesbarkeit auf dem Bild */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); 
+}
