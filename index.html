@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Server Status</title>
-    <!-- Einbindung einer schnellen Krypto-Bibliothek für den Passwort-Check -->
-    <script src="https://cloudflare.com"></script>
-    <script src="https://cloudflare.com"></script>
     
     <style>
         body {
@@ -56,7 +53,7 @@
             transition: background 0.3s;
         }
         button:hover { background: #45a049; }
-        .error { color: #ff5252; margin-top: 10px; font-size: 14px; display: none; }
+        .error { color: #ff5252; margin-top: 15px; font-size: 14px; display: none; }
         
         /* Dieser Bereich ist am Anfang unsichtbar */
         #content { display: none; }
@@ -76,7 +73,7 @@
         <div id="errorMessage" class="error">Falsches Passwort! Versuche es nochmal.</div>
     </div>
 
-    <!-- 2. DEIN EIGENTLICHER INHALT (Wird erst nach Passworteingabe sichtbar) -->
+    <!-- 2. INHALT (Wird erst nach Passworteingabe sichtbar) -->
     <div id="content" class="container">
         <h1>🎮 Unser Minecraft Server</h1>
         <div class="status-box">
@@ -88,20 +85,27 @@
     </div>
 
     <script>
-        // Das Passwort lautet "craft25". Der lange Code unten ist der MD5-Hash davon.
-        const targetHash = "2943717277742d4a9bf5039be50be1e9"; 
+        // Der SHA-256 Hash für das Passwort "craft25"
+        const targetHash = "cb583589d42ffe99b37cf89be8858ef45dc887b1e29f945935210b560dadfa87"; 
 
-        function checkPassword() {
+        // Hilfsfunktion zur Hash-Berechnung im Browser (ohne externe Skripte)
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);                    
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        async function checkPassword() {
             const input = document.getElementById("passwordInput").value;
-            // Wir berechnen den Hash des eingegebenen Passworts
-            const inputHash = CryptoJS.MD5(input).toString();
+            const inputHash = await sha256(input);
 
             if (inputHash === targetHash) {
-                // Richtiges Passwort: Sperre weg, Inhalt her!
+                // Richtiges Passwort: Sperre weg, Inhalt zeigen
                 document.getElementById("lockscreen").style.display = "none";
                 document.getElementById("content").style.display = "block";
             } else {
-                // Falsches Passwort: Fehlermeldung zeigen
+                // Falsches Passwort: Fehlermeldung einblenden
                 document.getElementById("errorMessage").style.display = "block";
                 document.getElementById("passwordInput").value = "";
             }
@@ -116,6 +120,7 @@
     </script>
 </body>
 </html>
+
 
 <!--<h1>Meine Website</h1>
 Ich heiße Philipp.<br>
