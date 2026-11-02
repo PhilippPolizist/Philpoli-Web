@@ -1,5 +1,124 @@
-<h1>Meine Website</h1>
+<!--<h1>Meine Website</h1>
 Ich heiße Philipp.<br>
 Mein Ingamename in Minecraft lautet Philpoli.
 <br> <br>
-<img src="Fotos/GMBH.png" width="400px">
+<img src="Fotos/GMBH.png" width="400px"> -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Server Status</title>
+    <!-- Einbindung einer schnellen Krypto-Bibliothek für den Passwort-Check -->
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            border: 1px solid #333;
+        }
+        h1 { color: #4caf50; margin-bottom: 20px; font-size: 24px; }
+        input[type="password"] {
+            width: 80%;
+            padding: 12px;
+            border: 2px solid #444;
+            border-radius: 6px;
+            background: #2a2a2a;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input[type="password"]:focus { border-color: #4caf50; }
+        button {
+            margin-top: 15px;
+            padding: 12px 24px;
+            background: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        button:hover { background: #45a049; }
+        .error { color: #ff5252; margin-top: 10px; font-size: 14px; display: none; }
+        
+        /* Dieser Bereich ist am Anfang unsichtbar */
+        #content { display: none; }
+        .status-box { background: #252525; padding: 15px; border-radius: 6px; margin-top: 15px; text-align: left; }
+        .online { color: #4caf50; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. DIE SPERRSEITE -->
+    <div id="lockscreen" class="container">
+        <h1>🔒 Server-Zugang</h1>
+        <p>Bitte gib das Passwort ein, um die Serverdaten zu sehen.</p>
+        <input type="password" id="passwordInput" placeholder="Passwort eingeben..." onkeypress="handleKeyPress(event)">
+        <br>
+        <button onclick="checkPassword()">Verbinden</button>
+        <div id="errorMessage" class="error">Falsches Passwort! Versuche es nochmal.</div>
+    </div>
+
+    <!-- 2. DEIN EIGENTLICHER INHALT (Wird erst nach Passworteingabe sichtbar) -->
+    <div id="content" class="container">
+        <h1>🎮 Unser Minecraft Server</h1>
+        <div class="status-box">
+            <p><strong>IP-Adresse:</strong> <code>meinserver.minekeep.net</code></p>
+            <p><strong>Status:</strong> <span class="online">● Online</span></p>
+            <p><strong>Spieler:</strong> 0 / 25</p>
+        </div>
+        <p style="font-size: 12px; color: #777; margin-top: 20px;">Rein privates Angebot für Freunde.</p>
+    </div>
+
+    <script>
+        // Das Passwort lautet "craft25". Der lange Code unten ist der MD5-Hash davon.
+        const targetHash = "2943717277742d4a9bf5039be50be1e9"; 
+
+        function checkPassword() {
+            const input = document.getElementById("passwordInput").value;
+            // Wir berechnen den Hash des eingegebenen Passworts
+            const inputHash = CryptoJS.MD5(input).toString();
+
+            if (inputHash === targetHash) {
+                // Richtiges Passwort: Sperre weg, Inhalt her!
+                document.getElementById("lockscreen").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                // Falsches Passwort: Fehlermeldung zeigen
+                document.getElementById("errorMessage").style.display = "block";
+                document.getElementById("passwordInput").value = "";
+            }
+        }
+
+        // Erlaubt das Abschicken mit der Enter-Taste
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                checkPassword();
+            }
+        }
+    </script>
+</body>
+</html>
