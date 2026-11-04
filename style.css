@@ -1,140 +1,171 @@
 
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #121212;
-  color: #ffffff;
+    background-color: #121111;
+}
+
+
+* {
+    margin: 0px;
+}
+
+/* Das Eltern-Element wird zum Flex-Container */
+.screen-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100vw;
   height: 100vh;
-}
-
-.container {
-  background: #1e1e1e;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
-  border: 1px solid #333;
-}
-
-h1 { color: #4caf50; margin-bottom: 20px; font-size: 24px; }
-
-.status-box { background: #252525; padding: 15px; border-radius: 6px; margin-top: 15px; text-align: left; }
-.online { color: #4caf50; font-weight: bold; }
-
-
-
-body {
-    margin: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .seitenleiste {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
+    background-color: #423e3e;
 
+    width: 450px;
+    height: 100vh;
+
+    color: #c0bdbd;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+.trenner {
+    margin-top: 3px;
+    height: 3px;
+    background-color: #c0bdbd;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.schrift-box {
+    margin-left: 10px;
 }
 
-html, body {
+.ue-box {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    min-width: 350px;
+}
+
+.login-box {
+    width: 325px;
+    background-color: #2b2828;
+    height: 350px;
+    border: #c0bdbd solid 3px;
+    border-radius: 2.5%;
+    padding: 30px;
+}
+
+.login-box input {
+    background-color: #423e3e;
+    color: #c0bdbd;
+    border: #c0bdbd solid 2px;
+    height: 24px;
+    width: 233px;
+    margin-top: 8px;
+    padding: 4px;
+}
+
+.login-box button {
+    background-color: #19730f;
+    color: #c0bdbd;
+    border: #c0bdbd solid 2px;
+    height: 35px;
+    width: 75px;
+    margin-top: 8px;
+    padding: 4px;
+}
+
+.login-box button:hover {
+    background-color: #1d7e27;
+}
+
+/*.login-box button: {
+
+}*/
+
+.error {
+    color: red;
+    display: none;
+}
+
+
+
+
+
+
+
+.sidebar-text {
+    margin-top: 50px;
+}
+
+
+
+
+
+
+
+.footer-box {
+    visibility: visible;
+    width: 325px;
+    background-color: #7019a262;
+    height: 100px;
+    padding: 30px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    border: #c0bdbd solid 3px;
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 85px
+}
+
+.link-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100px;
+    width: 150px;
+    align-items: center;
+}
+
+.link-box a {
+    color: aqua;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/* Der rechte Bereich nimmt automatisch den gesamten restlichen Platz ein */
+.hintergund {
+  flex: 1; 
   height: 100%;
 }
 
-.layout-container {
-  display: flex;
-  min-height: 100vh; /* Füllt die volle Bildschirmhöhe aus */
-  width: 100%;
-}
-
-.sidebar {
-  font-family: Arial, Helvetica, sans-serif;
-  width: 500px; /* Feste Breite der Seitenleiste */
-  background-color: #181a20;
-  color: #d0d4d8;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  gap: 10px;
-}
-
-.sidebar-box {
-  background-color: #34495e; /* Etwas helleres Blau als Kasten */
-  border-radius: 8px;        /* Abgerundete Ecken */
-  padding: 15px;
-  display: flex;
-  flex-direction: column;    /* Links untereinander */
-  gap: 10px;                 /* Abstand zwischen den Links */
-  border: 1px solid #4f6f8f; /* Optional: Feiner Rahmen */
-}
-
-.sidebar-title {
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  font-family: sans-serif;
-  text-align: center;     /* Optional: Überschrift zentrieren */
-}
-
-.sidebar-box a {
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 4px;
-  font-family: sans-serif;
-}
-
-.sidebar-box a:hover {
-  background-color: #1abc9c; /* Schicker Hover-Effekt (z.B. Türkis) */
-}
-
-.sidebar-footer {
-  margin-top: auto;       /* Drückt dieses Element magisch ganz nach unten */
-  text-align: center;     /* Zentriert den Text horizontal */
-  font-size: 0.75rem;     /* Kleine Schriftgröße */
-  color: #bdc3c7;         /* Etwas helleres Grau für dezente Optik */
-  font-family: sans-serif;
-  padding-top: 20px;
-}
-
-
-
-
-
-
-.main-content {
-  flex-grow: 1;           /* Nimmt weiterhin den restlichen Platz neben der Sidebar ein */
-  position: relative;     /* Wichtig: Erlaubt absolute Positionierung für Text und Bild darin */
-  overflow: hidden;       /* Verhindert, dass das Bild über den Rand hinausragt */
-  height: 100vh;          /* Zwingt den Hauptinhalt exakt auf Bildschirmhöhe */
-}
-
-.bg-image {
+/* Das Bild füllt den Bereich komplett aus, ohne zu verzerren */
+.hintergund img {
   width: 100%;
   height: 100%;
-  object-fit: cover;      /* Bild füllt den Bereich perfekt aus, ohne gestaucht zu werden */
-  object-position: center;/* Bild wird mittig ausgerichtet */
+  object-fit: cover; /* Verhindert das Verzerren */
+  object-position: center; /* Zentriert den Bildausschnitt */
 }
 
-.text-overlay {
-  position: absolute;
-  bottom: 20px;           /* Abstand von unten */
-  right: 20px;            /* Geändert: Abstand von RECHTS */
-  color: white;           /* Textfarbe */
-  font-size: 0.85rem;     /* Kleine Schriftgröße */
-  font-family: sans-serif;
-  
-  /* Textausrichtung nach rechts (falls der Text mehrzeilig wird) */
-  text-align: right; 
-  
-  /* Textschatten für bessere Lesbarkeit auf dem Bild */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); 
+/* Styling für das Discord-Logo (etwas kleiner, da es keinen Rand hat) */
+.link-box img[alt*="Discord-Logo"] {
+  height: 64px;         /* Etwas schmaler für den optischen Ausgleich */
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+/* Styling für das GitHub-Logo */
+.link-box img[alt*="GitHub-Logo"] {
+  height: 96px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-top: -16px;
 }

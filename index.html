@@ -1,35 +1,55 @@
 <!DOCTYPE html>
-<html lang="de">
-
-    
+<html>
     <head>
-        <title>Sperrseite - Philpoli-Network</title>
+        <title>Philpoli-Network</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cloudflare.com">
     </head>
-    
     <body>
-        <div class="layout-container">
-            <aside class="sidebar">
-                <!-- 1. Die Überschrift -->
-                <h2 class="sidebar-title">Philpoli-Network</h2>
-                <h2 class="sidebar-title">Sperrbildschirm</h2>
+        <main class="screen-wrapper">
 
-                <!-- 2. Der Kasten für die drei Elemente -->
-                <div class="sidebar-box">
-                    <h1>🔒 Server-Zugang</h1>
-                    <p>Bitte gib das Passwort ein, um die Serverdaten zu sehen.</p>
-                    <input type="password" id="passwordInput" placeholder="Passwort eingeben..." onkeypress="handleKeyPress(event)">
+            <section class="seitenleiste">
+
+                <div class="ue-box">
+                    <img src="photos/logo.png" alt="Philpoli-Network - Logo">
+
+                    <div class="schrift-box">
+                        <h1>Philpoli-Network</h1>
+                        <div class="trenner"></div>
+                        <h1>Sperrbildschirm</h1>
+                    </div>
+                </div>
+
+                <div class="login-box">
+                    <h2>Passworteingabe:</h2>
                     <br>
+                    <p><u>Bitte gebe ein Passwort ein:</u></p>
+                    <input type="password" id="passwordInput" placeholder="Passwort eingeben..." onkeypress="handleKeyPress(event)">
                     <button onclick="checkPassword()">Verbinden</button>
+                    <br><br>
                     <div id="errorMessage" class="error">Falsches Passwort! Versuche es nochmal.</div>
                 </div>
 
-                <!-- 3. Der zentrierte Text ganz unten -->
-                <div class="sidebar-footer">
-                    Website für geladene Freunde
+                <p class="sidebar-text">geschützte, private Website von Philpoli</p>
+
+                <div class="footer-box">
+                    <div class="link-box">
+                        <a href="home.html">Discord:</a>
+                        <img src="photos/Discord.png" alt="Discord-Logo">
+                    </div>
+                    <div class="link-box">
+                        <a href="home.html">GitHub:</a>
+                        <img src="photos/GitHub.png" alt="GitHub-Logo">
+                    </div>
                 </div>
-            </aside>
-        </div>
+
+            </section>
+
+            <section class="hintergund">
+                <img src="photos/Hintergund.png" alt="Bannerbild">
+            </section>
+
+        </main>
         <script>
             // Der SHA-256 Hash für das Passwort "craft25"
             const targetHash = "cb583589d42ffe99b37cf89be8858ef45dc887b1e29f945935210b560dadfa87"; 
@@ -64,10 +84,4 @@
             }
         </script>
     </body>
-
-
-
-
-
-
 </html>
