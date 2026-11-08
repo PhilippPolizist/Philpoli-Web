@@ -49,6 +49,45 @@ body {
     min-width: 350px;
 }
 
+.phil {
+    color: #11ABED;
+    /*text-shadow:
+        -0.5px -0.5px 0 #0E8DC4,
+        0.5px -0.5px 0 #0E8DC4,
+        -0.5px 0.5px 0 #0E8DC4,
+        0.5px 0.5px 0 #0E8DC4,
+        -1px 0px 0 #0E8DC4,
+        1px 0px 0 #0E8DC4,
+        0px -1px 0 #0E8DC4,
+        0px 1px 0 #0E8DC4;*/
+}
+
+.poli {
+    color: #2047A8;
+    text-shadow:
+        -0.5px -0.5px 0 #295AD6,
+        0.5px -0.5px 0 #295AD6,
+        -0.5px 0.5px 0 #295AD6,
+        0.5px 0.5px 0 #295AD6,
+        -1px 0px 0 #295AD6,
+        1px 0px 0 #295AD6,
+        0px -1px 0 #295AD6,
+        0px 1px 0 #295AD6;
+}
+
+.net {
+    color: gold;
+    /*text-shadow:
+        -0.5px -0.5px 0 goldenrod,
+        0.5px -0.5px 0 goldenrod,
+        -0.5px 0.5px 0 goldenrod,
+        0.5px 0.5px 0 goldenrod,
+        -1px 0px 0 goldenrod,
+        1px 0px 0 goldenrod,
+        0px -1px 0 goldenrod,
+        0px 1px 0 goldenrod;*/
+}
+
 .login-box {
     width: 325px;
     background-color: #2b2828;
@@ -131,6 +170,7 @@ body {
     gap: 10px;
     height: 100px;
     width: 150px;
+    justify-content: center;
     align-items: center;
 }
 
@@ -169,3 +209,5 @@ body {
   vertical-align: middle;
   margin-top: -16px;
 }
+
+/* Philipp: #11ABED ; Polizist: #2047A8 */
