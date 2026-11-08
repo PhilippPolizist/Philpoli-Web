@@ -130,11 +130,13 @@ body {
 .error {
     color: red;
     display: none;
+    margin-bottom: 20px;
 }
 
 .login-box img {
     width: 325px;
     height: 225px;
+    margin-top: 20px;
 }
 
 
