@@ -105,11 +105,12 @@ body {
 .login-box button {
     background-color: #19730f;
     color: #c0bdbd;
+    font-weight: bold;
     border: #c0bdbd solid 2px;
-    height: 35px;
+    height: 36px;
     width: 75px;
     margin-top: 8px;
-    padding: 4px;
+    padding: 3px;
 }
 
 .login-box button:hover {
@@ -123,6 +124,11 @@ body {
 .error {
     color: red;
     display: none;
+}
+
+.login-box img {
+    width: 325px;
+    height: 225px;
 }
 
 
