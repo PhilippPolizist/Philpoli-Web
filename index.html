@@ -29,7 +29,7 @@
                     <button onclick="checkPassword()">Verbinden</button>
                     <br><br>
                     <div id="errorMessage" class="error">Falsches Passwort! Versuche es nochmal.</div>
-                    <img src="photos/panda.png" alt="Panda">
+                    <img src="photos/panda.png" alt="Panda" id="panda">
                 </div>
 
                 <p class="sidebar-text">geschützte, private Website von Philpoli</p>
@@ -58,15 +58,18 @@
 
             // Hilfsfunktion zur Hash-Berechnung im Browser (ohne externe Skripte)
             async function sha256(message) {
-                const msgBuffer = new TextEncoder().encode(message);                    
-                const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const msgBuffer     = new TextEncoder().encode(message);                    
+                const hashBuffer    = await crypto.subtle.digest('SHA-256', msgBuffer);
+                const hashArray     = Array.from(new Uint8Array(hashBuffer));
                 return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
             }
 
             async function checkPassword() {
-                const input = document.getElementById("passwordInput").value;
-                const inputHash = await sha256(input);
+                const input         = document.getElementById("passwordInput").value;
+                const panda         = document.getElementById("panda");
+                const errorMessage  = document.getElementById("errorMessage")
+
+                const inputHash  = await sha256(input);
 
                 if (inputHash === targetHash) {
                     // Richtiges Passwort: Sperre weg, Inhalt zeigen
@@ -75,6 +78,14 @@
                     // Falsches Passwort: Fehlermeldung einblenden
                     document.getElementById("errorMessage").style.display = "block";
                     document.getElementById("passwordInput").value = "";
+                    
+                    errorMessage.style.display = "block";
+                    panda.src = "photos/panda-erschrocken.png";
+                    // nach 3 Sekunden wieder einschlafen
+                    setTimeout(() => {
+                        errorMessage.style.display = "none";
+                        panda.src = "photos/panda.png";
+                    }, 3000);
                 }
             }
 
